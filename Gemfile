@@ -14,6 +14,7 @@ gem "bootsnap", require: false
 gem "honeybadger"
 gem "pg"
 gem "puma"
+gem "mini_racer"
 gem "rack-canonical-host"
 gem "rails", "~> 6.0.0"
 gem "recipient_interceptor"
