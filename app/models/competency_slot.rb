@@ -1,3 +1,3 @@
 class CompetencySlot < ApplicationRecord
-  belongs_to :exercise_slot
+  belongs_to :exercise_slots
 end
