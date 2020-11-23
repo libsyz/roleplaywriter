@@ -12,6 +12,7 @@ gem "autoprefixer-rails"
 
 gem "bootsnap", require: false
 gem "honeybadger"
+gem "simple_form"
 gem "pg"
 gem "mini_racer"
 gem "puma"

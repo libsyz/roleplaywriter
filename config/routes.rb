@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get 'pages/home'
   root to: "pages#home"
+  resources :centers, only: [:new, :create]
 end
