@@ -9,7 +9,7 @@ ruby "2.7.0"
 
 
 gem "autoprefixer-rails"
-
+gem "annotate"
 gem "bootsnap", require: false
 gem "honeybadger"
 gem "simple_form"
