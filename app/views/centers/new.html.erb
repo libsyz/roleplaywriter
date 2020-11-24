@@ -1,6 +1,6 @@
 <h1 class="mt-5">Create a new center</h1>
 <%= simple_form_for @center, html: { class: "w-50" } do |f| %>
-  <%= f.input :storyline, collection: Storyline.all, label_method: :name %>
-  <%= f.input :competency_model, collection: CompetencyModel.all, label_method: :name %>
+  <%= f.input :storyline, collection: Storyline.all, label_method: :name, input_html: { required: true } %>
+  <%= f.input :competency_model, collection: CompetencyModel.all, label_method: :name, input_html: { required: true }%>
   <%= f.submit :create, class: "btn btn-primary w-100" %>
 <% end %>

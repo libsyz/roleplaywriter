@@ -1,0 +1,18 @@
+<h1> Create a New Matrix </h1>
+
+<!-- So this is a crazy form that takes -->
+<!-- 4 Exercises -->
+<%= simple_form_for :matrix_template do |f| %>
+  <% 4.times do |n|  %>
+    <%= f.input "exercise #{n + 1}", collection: @exercises, label_method: :name %>
+    <hr>
+    <% 4.times do |n| %>
+      <%= f.input "competency #{n + 1}", collection: @competencies, label_method: :name %>
+    <% end %>
+  <% end %>
+  <%=  f.submit "create matrix" %>
+<% end %>
+<!-- For each exercise -->
+<!-- 4 competencies -->
+<!-- So I need some sort of form group -->
+<!-- And on creation, add everything to the right place -->
