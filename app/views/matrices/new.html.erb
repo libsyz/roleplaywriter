@@ -1,16 +1,20 @@
+
 <h1> Create a New Matrix </h1>
 
 <!-- So this is a crazy form that takes -->
 <!-- 4 Exercises -->
-<%= simple_form_for :matrix_template do |f| %>
-  <% 4.times do |n|  %>
-    <%= f.input "exercise #{n + 1}", collection: @exercises, label_method: :name %>
-    <hr>
-    <% 4.times do |n| %>
-      <%= f.input "competency #{n + 1}", collection: @competencies, label_method: :name %>
+<%= simple_form_for @new_matrix_form, url: center_matrices_path(@center) do |f| %>
+  <% 4.times do |n| %>
+    <%= f.input "exercise_slot_#{n + 1}".to_sym, collection: @exercises %>
+    <%= f.simple_fields_for "comp_slots_ex_#{n + 1}".to_sym do |f| %>
+      <%= f.input :competency_slot_1, collection: @competencies %>
+      <%= f.input :competency_slot_2, collection: @competencies %>
+      <%= f.input :competency_slot_3, collection: @competencies %>
+      <%= f.input :competency_slot_4, collection: @competencies %>
+      <hr>
     <% end %>
   <% end %>
-  <%=  f.submit "create matrix" %>
+  <%=  f.submit "create matrix", class: "btn btn-primary w-100" %>
 <% end %>
 <!-- For each exercise -->
 <!-- 4 competencies -->
