@@ -4,13 +4,12 @@
 <!-- So this is a crazy form that takes -->
 <!-- 4 Exercises -->
 <%= simple_form_for @new_matrix_form, url: center_matrices_path(@center) do |f| %>
-  <% 4.times do |n| %>
+  <% @new_matrix_form.ex_slots.times do |n| %>
     <%= f.input "exercise_slot_#{n + 1}".to_sym, collection: @exercises %>
-    <%= f.simple_fields_for "comp_slots_ex_#{n + 1}".to_sym do |f| %>
-      <%= f.input :competency_slot_1, collection: @competencies %>
-      <%= f.input :competency_slot_2, collection: @competencies %>
-      <%= f.input :competency_slot_3, collection: @competencies %>
-      <%= f.input :competency_slot_4, collection: @competencies %>
+    <% @new_matrix_form.comps_per_exercise.times do |i| %>
+    <%= f.simple_fields_for "comp_slots_ex_#{i + 1}".to_sym do |f| %>
+      <%= f.input "ex_slot_#{n + 1}_comp_#{i + 1}", collection: @competencies %>
+    <% end %>
       <hr>
     <% end %>
   <% end %>
